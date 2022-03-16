@@ -6,10 +6,11 @@ const tokenAuth = (req, res, next) => {
         const authHeader = req.headers.authorization;
         const tokens = authHeader.split(' ');
         const jwtToken = tokens[1];
-        const result = jwt.verify(jwtToken, config.jwtSecret);
+        const result = jwt.verify(jwtToken, 'secret@123$');
         req.role = result.role;
         next();
     } catch (e) {
+        console.log(e);
         res.status(401).send('Unauthorized');
     }
 }

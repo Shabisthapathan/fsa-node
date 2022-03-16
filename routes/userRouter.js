@@ -31,7 +31,7 @@ router.put('/:email', tokenAuth, upload.single('resume'), userCtrl.update);
 
 // recruiter
 router.get('/page/:page/size/:size', tokenAuth, authorize.authorizeRecruiter, userCtrl.getUsers);
-router.get('/', tokenAuth, authorize.authorizeRecruiter, userCtrl.getUsers);
+router.get('/', tokenAuth, authorize.authorizeRecruiter,userCtrl.getUsers);
 router.get('/:email', tokenAuth, authorize.authorizeRecruiter, userCtrl.getUserByEmail);
 
 // admin
