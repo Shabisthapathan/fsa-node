@@ -6,7 +6,7 @@ const tokenAuth = (req, res, next) => {
         const authHeader = req.headers.authorization;
         const tokens = authHeader.split(' ');
         const jwtToken = tokens[1];
-        const result = jwt.verify(jwtToken, 'secret@123$');
+        const result = jwt.verify(jwtToken, config.jwtSecret);
         req.role = result.role;
         next();
     } catch (e) {
