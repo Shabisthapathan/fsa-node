@@ -84,7 +84,9 @@ const getUsers = async (req, res) => {
 const getUserByEmail = (req, res) => {
     userRepository.getUserByEmail(req.params.email)
         .then(user => res.status(200).json(user))
-        .catch(err => res.status(500).send('Internal Server Error'));
+        .catch(err => {res.status(500).send('Internal Server Error');
+                        console.log(err)
+                      });
 }
 
 const signin = async (req, res) => {
