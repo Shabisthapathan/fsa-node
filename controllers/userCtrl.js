@@ -1,3 +1,4 @@
+const { dbConStr } = require('../config');
 const userRepository = require('../repositories/userRepository');
 const cryptoUtils = require('../utils/cryptoUtils');
 const logger = require('../utils/logger');
@@ -100,6 +101,7 @@ const signin = async (req, res) => {
         const response = {
             firstName: dbUser.firstName,
             lastName: dbUser.lastName,
+            role:dbConStr.role,
             token,
             email: dbUser.email
         }
